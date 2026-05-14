@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Folio — Analyst & Engineer</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Typed.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+  <!-- ★ YOUR STYLESHEET -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       CUSTOM CURSOR
+  ═══════════════════════════════════════════ -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════════════════════════════════════════
+       LEFT SIDEBAR — Social Links
+  ═══════════════════════════════════════════ -->
+  <aside id="sidebar">
+    <span class="sidebar-label">Connect</span>
+
+    <ul class="sidebar-links">
+
+      <!-- LinkedIn -->
+      <li>
+        <a
+          class="sidebar-link"
+          href="https://www.linkedin.com/in/deepak-kumar-prasad/"
+          target="_blank"
+          rel="noopener"
+          data-tip="LinkedIn"
+        >
+          <i class="fab fa-linkedin-in"></i>
+          <span>LinkedIn</span>
+        </a>
+      </li>
+
+      <!-- GitHub -->
+      <li>
+        <a
+          class="sidebar-link"
+          href="https://github.com/mr-deepak-kp"
+          target="_blank"
+          rel="noopener"
+          data-tip="GitHub"
+        >
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+      </li>
+
+      <div class="sidebar-divider"></div>
+
+      <!-- LeetCode -->
+      <li>
+        <a
+          class="sidebar-link"
+          href="https://leetcode.com/u/deepak171220/"
+          target="_blank"
+          rel="noopener"
+          data-tip="LeetCode"
+        >
+          <!-- LeetCode doesn't have an FA icon — using code icon -->
+          <i class="fas fa-code"></i>
+          <span>LeetCode</span>
+        </a>
+      </li>
+
+      <!-- HackerRank -->
+      <li>
+        <a
+          class="sidebar-link"
+          href="https://www.hackerrank.com/profile/Deepak171220"
+          target="_blank"
+          rel="noopener"
+          data-tip="HackerRank"
+        >
+          <i class="fab fa-hackerrank"></i>
+          <span>HackerRank</span>
+        </a>
+      </li>
+
+      <div class="sidebar-divider"></div>
+
+      <!-- Email -->
+      <li>
+        <a
+          class="sidebar-link"
+          href="deepak171220@email.com"
+          data-tip="Email Me"
+        >
+          <i class="fas fa-envelope"></i>
+          <span>Email</span>
+        </a>
+      </li>
+
+    </ul>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════
+       TOP NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <div class="logo-icon-wrap" id="logo-icon-wrap">
+        <img src="assets/icons/python-94.png" alt="Tech Icon" id="logo-img">
+      </div>
+      DATA<span>ASPIRANT</span>
+    </a>
+
+    <!-- Hamburger (mobile only) -->
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <!-- Experience link kept but section is hidden -->
+      <!-- <li><a href="#experience">Experience</a></li> -->
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-content">
+
+
+                  <!-- i changed the profile photo section -->
+
+      <!-- ── Optional Profile Photo (hidden by default) ── -->
+      <!-- <div class="profile-photo-wrap" id="profileWrap">
+        <div class="profile-photo-inner">
+          <img id="profileImg" src="" alt="Profile Photo" style="display:none" />
+          <i class="fas fa-user photo-ph" id="photoPlaceholder"></i>
+        </div>
+      </div>
+      <p class="photo-upload-hint" id="photoHint" style="display:none">
+        Click the photo ring to upload your image
+      </p>
+
+      Toggle button for photo section -->
+      <!-- <button class="photo-toggle-btn" onclick="togglePhoto()">
+        <i class="fas fa-user-circle"></i> Toggle Profile Photo
+      </button> -->
+      
+
+      <!-- ── Profile Photo — Always visible, loaded from URL ── -->
+      <div class="profile-photo-wrap visible" id="profileWrap">
+        <div class="profile-photo-inner">
+          <!--
+            ★ REPLACE the src below with your actual image URL.
+            Example:  src="https://i.imgur.com/XYZ.jpg"
+                   or src="https://avatars.githubusercontent.com/u/YOUR_ID"
+                   or src="./photo.jpg"  (if hosted locally)
+          -->
+          <img
+            id="profileImg"
+            src="source/m23.jpg"
+            alt="Profile Photo"
+            onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='block';"
+          />
+          <i class="fas fa-user photo-ph" id="photoPlaceholder" style="display:none"></i>
+        </div>
+      </div>
+      <!-- Shown only if image fails to load -->
+      <p class="photo-upload-hint" id="photoHint" style="display:none">
+        Update the src URL in index.html to show your photo
+      </p>
+
+
+
+
+      <!-- Hero text -->
+      <div class="hero-tag" id="hero-tag" style="opacity:0;transform:translateY(20px)">
+        Open to Work - REMOTE/HYBRID
+      </div>
+
+      <h1 class="hero-name" id="hero-name" style="opacity:0;transform:translateY(20px)">
+        Hi 👋, <br> I'm 'Deepak'
+      </h1>
+
+      <div class="hero-typed-wrap" id="hero-typed-wrap" style="opacity:0;transform:translateY(20px)">
+       <!--,  I'm a -->&nbsp;<span id="typed-text"></span>
+      </div>
+
+      <div class="hero-ctas" id="hero-ctas" style="opacity:0;transform:translateY(20px)">
+        <a href="#projects" class="btn-primary">
+          <i class="fas fa-briefcase"></i> View My Work
+        </a>
+        <a href="#" class="btn-secondary" onclick="openResume(event)">
+          <i class="fas fa-file-alt"></i> View Resume
+        </a>
+      </div>
+
+    </div><!-- /.hero-content -->
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">— About</p>
+
+      <div class="about-grid">
+
+        <!-- Globe visual (desktop only) -->
+        <div class="about-visual fade-up">
+          <div class="about-canvas-wrap">
+            <canvas id="about-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Text + stats -->
+        <div class="about-text fade-up">
+          <h2 class="section-title">
+            Turning Raw Data<br>into Real Impact
+          </h2>
+
+          <!-- <p>
+            I'm a <strong>Data Analyst & Data Engineer</strong> with 5+ years of
+            experience designing end-to-end data solutions — from building robust
+            ETL pipelines to crafting executive-level dashboards that drive
+            business decisions.
+          </p>
+          <p>
+            My work bridges the gap between <strong>raw data infrastructure</strong>
+            and <strong>meaningful insights</strong>, using modern cloud data stacks,
+            real-time streaming, and advanced analytics.
+          </p>
+          <p>
+            I specialize in <strong>Python, SQL, Apache Spark, dbt, Airflow,
+            Snowflake</strong>, and cloud platforms such as AWS and GCP.
+          </p> -->
+          <p>
+  I'm a <strong>Data Analyst</strong> with hands-on project experience and an
+  aspiring <strong>Data Engineer</strong>, focused on turning raw data into meaningful insights.
+</p>
+
+<p>
+  I have worked on <strong>data cleaning, visualization, and analysis</strong>,
+  and I’m expanding my skills in <strong>ETL pipelines and data engineering concepts</strong>.
+</p>
+
+<p>
+  Familiar with <strong>Python, SQL</strong>, and visualization tools, with
+  exposure to <strong>Spark, Airflow, and cloud technologies</strong> like AWS and GCP.
+</p>
+
+          <!-- Stat cards -->
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-num" data-count="5">0+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num" data-count="6">0+</div>
+              <div class="stat-label">Dashboards Built</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num" data-count="10">0+</div>
+              <div class="stat-label">M+ Rows Processed</div>
+            </div>
+            <!-- <div class="stat-card">
+              <div class="stat-num" data-count="5">0+</div>
+              <div class="stat-label">Years Experience</div>
+            </div> -->
+            <div class="stat-card">
+              <div class="stat-num" data-count="8">0+</div>
+              <div class="stat-label">Datasets Analyzed</div>
+            </div>
+            <!-- <div class="stat-card">
+              <div class="stat-num" data-count="30">0+</div>
+              <div class="stat-label">Pipelines Deployed</div>
+            </div> -->
+          </div>
+        </div>
+
+      </div><!-- /.about-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — TECHNICAL EXPERTISE
+  ═══════════════════════════════════════════ -->
+  <section id="expertise">
+    <div class="section-inner">
+      <p class="section-label">— Technical Expertise</p>
+      <h2 class="section-title fade-up">What <i>I</i> Work With</h2>
+      <p class="section-desc fade-up" style="max-width: 600px; color: var(--muted); margin-top: 12px; font-size: 1.05rem; line-height: 1.6;">
+        A precision-selected stack refined across 5+ years of production data work — from pipelines to presentations.
+      </p>
+
+      <div class="expertise-grid">
+
+        <!-- Card 1: Python & Data Science -->
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon">
+            <!-- 
+              ★ To use a local icon:
+              1. Download an icon (e.g., python.svg) 
+              2. Place it in assets/icons/
+              3. Replace the <i> tag below with:
+                 <img src="assets/icons/python.svg" alt="Python">
+            -->
+            <i class="fab fa-python"></i>
+          </div>
+          <h3>Python & Data Science</h3>
+          <p>End-to-end pipelines, statistical modelling, and automation workflows that eliminate manual work.</p>
+          <div class="expertise-badges">
+            <span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Jupyter</span><span>FastAPI</span><span>RestAPI</span>
+          </div>
+        </div>
+
+        <!-- Card 2: SQL & Databases -->
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon"><i class="fas fa-database"></i></div>
+          <h3>SQL & Databases</h3>
+          <p>Advanced query optimisation, schema design, and cloud data warehousing at terabyte scale.</p>
+          <div class="expertise-badges">
+            <!-- <span>PostgreSQL</span><span>BigQuery</span><span>Snowflake</span><span>MySQL</span><span>dbt</span><span>Redshift</span><span>Spark SQL</span> -->
+            <span>MySQL</span><span>PostgreSQL</span><span>dbt</span><span>Spark SQL</span>
+          </div>
+        </div>
+
+        <!-- Card 3: BI & Visualisation -->
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>BI & Visualisation</h3>
+          <p>Interactive dashboards and self-serve reporting that transforms data into daily business decisions.</p>
+          <div class="expertise-badges">
+            <!-- <span>Power BI</span><span>Tableau</span><span>Looker</span><span>D3.js</span><span>Metabase</span><span>Grafana</span> -->
+            <span>Power BI</span><span>Tableau</span>
+
+          </div>
+        </div>
+
+        <!-- Card 4: Cloud & Data Infra -->
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon"><i class="fas fa-cloud"></i></div>
+          <h3>Cloud & Data Infra</h3>
+          <p>Scalable ETL pipelines and cloud-native architectures handling high-volume data reliably.</p>
+          <div class="expertise-badges">
+            <!-- <span>AWS</span><span>GCP</span><span>Airflow</span><span>Spark</span><span>Kafka</span><span>Databricks</span><span>Terraform</span> -->
+            <span>AWS</span><span>GCP</span>
+
+          </div>
+        </div>
+
+        <!-- Card 5: Machine Learning -->
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon"><i class="fas fa-robot"></i></div>
+          <h3>Machine Learning</h3>
+          <p>Predictive models, NLP pipelines, and anomaly detection systems deployed in production.</p>
+          <div class="expertise-badges">
+            <!-- <span>XGBoost</span><span>TensorFlow</span><span>MLflow</span><span>LSTM</span><span>Prophet</span><span>SHAP</span><span>Optuna</span> -->
+            <span>TensorFlow</span><span>MLflow</span>
+
+          </div>
+        </div>
+
+        <!-- Card 6: Statistics & Experimentation -->
+        <div class="expertise-card fade-up">
+          <div class="expertise-icon"><i class="fas fa-flask"></i></div>
+          <h3>Statistics & Experimentation</h3>
+          <p>Rigorous A/B testing, causal inference, and Bayesian methods for confident decisions.</p>
+          <div class="expertise-badges">
+            <span>A/B Testing</span><span>Bayesian</span><span>Regression</span><span>Time Series</span><span>Clustering</span><span>R</span>
+          </div>
+        </div>
+
+      </div><!-- /.expertise-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — EDUCATION
+  ═══════════════════════════════════════════ -->
+  <section id="education">
+    <div class="section-inner">
+      <p class="section-label">— Education</p>
+      <h2 class="section-title fade-up">My Learning Path</h2>
+
+      <div class="education-list">
+
+        <!-- Education Item 1 -->
+        <div class="education-item fade-up">
+          <div class="edu-date">2022 — 2026</div>
+          <div class="edu-content">
+            <h3>Bachelor of Technology in Computer Science</h3>
+            <span class="edu-org">IES College of Technology,Bhopal(MP)</span>
+            <p class="edu-details">
+            Focused on Data Analytics, Databases, Machine Learning, and ETL pipeline development.
+Developed skills in data cleaning, transformation, visualization, and deriving actionable insights from real-world datasets.
+            </p>
+          </div>
+        </div>
+
+        <!-- Education Item 2 -->
+        <!-- <div class="education-item fade-up">
+          <div class="edu-date">2021 — 2022</div>
+          <div class="edu-content">
+            <h3>Postgraduate Diploma in Data Science</h3>
+            <span class="edu-org">Data Science Institute of Excellence</span>
+            <p class="edu-details">
+              Specialized in Big Data Analytics, Statistical Inference, and Cloud Computing 
+              Architectures.
+            </p>
+          </div> -->
+        </div>
+
+      </div><!-- /.education-list -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">— Projects</p>
+      <h2 class="section-title fade-up">Featured Work</h2>
+
+      <div class="projects-grid">
+
+      
+        <!-- Project 1 -->
+        <div class="project-card fade-up">
+          <div class="project-num">01</div>
+          <div class="project-title">Funnel Deep Dive</div>
+          <p class="project-desc">
+            Built an end-to-end conversion analytics solution to identify funnel bottlenecks, improve user journey performance, and drive data-driven optimization.
+Designed a data-driven funnel intelligence dashboard to analyze user behavior, conversion trends, and stage-wise drop-off performance.
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">NumPy</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">Matplotlib</span>
+            <span class="badge">Seaborn</span>
+            <span class="badge">SQL</span>
+            <span class="badge">Power BI</span>
+            <span class="badge">DAX</span>
+            <span class="badge">Excel</span>
+          </div>
+          <div class="project-links">
+            <a href="https://funneldeepdive.netlify.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/mr-deepak-kp/Funnel_Deep_Dive_Demo" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        
+          <!-- Project 2 -->
+        <div class="project-card fade-up">
+          <div class="project-num">02</div>
+          <div class="project-title">CBIA</div>
+          <p class="project-desc">
+                Built CBIA — a customer behavior intelligence platform where I analyzed 5,000+ customers,
+                 predicted $5.18M in customer lifetime value, identified customers likely to churn,
+                 and delivered a 5-page dashboard covering Executive KPIs,
+                 customer segmentation, churn analysis, and win-back lists 
+                 — providing business stakeholders with actionable insights for immediate decision-making.
+          </p>
+
+
+          <div class="tech-badges">
+            <span class="badge">EDA</span>
+            <span class="badge">RFM</span>
+            <span class="badge">KMeans</span>
+            <span class="badge">CLV</span>
+            <span class="badge">Churn</span>
+            <span class="badge">Python</span>
+            <span class="badge">NumPy</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">Matplotlib</span>
+            <span class="badge">Seaborn</span>
+            <span class="badge">Scikit-learn</span>
+            <span class="badge">scikit-learn</span>
+            <span class="badge">Power BI</span>
+            <span class="badge">MySQL</span>
+          </div>
+          <div class="project-links">
+            <!-- <a href="https://cbiaproject.netlify.app/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a> -->
+            <a href="https://cbiaproject.netlify.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/mr-deepak-kp/CBIA_Demo" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Project 3 -->
+        <div class="project-card fade-up">
+          <div class="project-num">03</div>
+          <div class="project-title">Blinkit Sales & Performance Analysis</div>
+          <p class="project-desc">
+            Delivered end-to-end sales performance analysis for Blinkit's grocery operations — transforming raw data into actionable KPIs, outlet-level insights, and revenue trends that drive smarter, faster business decisions..
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">SQL</span>
+            <span class="badge">Power BI</span>
+            <!-- <span class="badge">DAX</span> -->
+            <span class="badge">Excel</span>
+          
+          </div>
+          <div class="project-links">
+            <a href="https://onedrive.live.com/:x:/g/personal/85A2D415C17D6802/IQD_Pl6jcF0BR6OoJ4TwVB1KAXmXjau2b8KfTVJhB-wBGt8?resid=85A2D415C17D6802!sa35e3eff5d704701a3a82784f0541d4a&ithint=file%2Cxlsx&e=OB8sTS&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy84NWEyZDQxNWMxN2Q2ODAyL0lRRF9QbDZqY0YwQlI2T29KNFR3VkIxS0FYbVhqYXUyYjhLZlRWSmhCLXdCR3Q4P2U9T0I4c1RT" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/mr-deepak-kp/Blinkit_Data_Analysis/blob/main/README.md" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>        
+
+        <!-- Project 4 -->
+        <div class="project-card fade-up">
+          <div class="project-num">04</div>
+          <div class="project-title">Netflix Content Analysis</div>
+          <p class="project-desc">
+            Broke down Netflix's entire content portfolio through genre trends, regional performance, actor analytics, and content categorization — delivering sharp business insights that inform smarter acquisition and growth decisions.
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">MYSQL</span>
+            <span class="badge">Excel</span>
+            <span class="badge">PBI</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/your-username/project4" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+
+      <!-- Hidden Projects FOR FUTURE REFERENCE -->
+        <!-- Project 1 
+        <div class="project-card fade-up">
+          <div class="project-num">01</div>
+          <div class="project-title">Real-Time Sales Analytics Dashboard</div>
+          <p class="project-desc">
+            End-to-end BI solution processing 5M+ daily transactions with live KPI
+            monitoring, drill-down capabilities, and predictive trend analysis.
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Power BI</span>
+            <span class="badge">Python</span>
+            <span class="badge">SQL Server</span>
+            <span class="badge">Azure</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/your-username/project1" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>   -->
+
+        <!-- Project 2 
+        <div class="project-card fade-up">
+          <div class="project-num">02</div>
+          <div class="project-title">Automated ETL Data Pipeline</div>
+          <p class="project-desc">
+            Scalable pipeline ingesting data from 15+ sources into a Snowflake
+            data warehouse using Airflow orchestration, dbt transformations, and CI/CD.
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Airflow</span>
+            <span class="badge">dbt</span>
+            <span class="badge">Snowflake</span>
+            <span class="badge">Python</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/your-username/project2" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>   -->
+
+        <!-- Project 3 
+        <div class="project-card fade-up">
+          <div class="project-num">03</div>
+          <div class="project-title">Kafka Real-Time Streaming App</div>
+          <p class="project-desc">
+            Streaming platform consuming 200K+ events/sec from IoT sensors,
+            processing anomalies in real-time with Spark Streaming and Slack alerts.
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Kafka</span>
+            <span class="badge">Spark</span>
+            <span class="badge">GCP</span>
+            <span class="badge">BigQuery</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/your-username/project3" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>        -->
+
+        <!-- Project 4 
+        <div class="project-card fade-up">
+          <div class="project-num">04</div>
+          <div class="project-title">Customer Churn Prediction Model</div>
+          <p class="project-desc">
+            ML pipeline predicting churn with 91% accuracy using XGBoost + SHAP,
+            deployed as a REST API on AWS Lambda with automated retraining.
+          </p>
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">XGBoost</span>
+            <span class="badge">AWS Lambda</span>
+            <span class="badge">MLflow</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/your-username/project4" target="_blank" class="project-link">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>      -->
+
+      </div><!-- /.projects-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — EXPERIENCE  ← COMMENTED OUT
+       (Section kept in DOM, hidden via CSS class)
+  ═══════════════════════════════════════════ -->
+  <!--
+  <section id="experience" class="section-hidden">
+    <div class="section-inner">
+      <p class="section-label">04 — Experience</p>
+      <h2 class="section-title fade-up">Career Timeline</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="timeline-year">2022 – Present</span>
+            <span class="timeline-company">TechCorp Inc.</span>
+          </div>
+          <div class="timeline-role">Senior Data Engineer</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Designed 30+ production data pipelines processing 500GB+ daily</li>
+              <li>Led Snowflake migration, reducing query time by 60%</li>
+              <li>Mentored 4 junior engineers on dbt best practices</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="timeline-year">2020 – 2022</span>
+            <span class="timeline-company">DataLabs Agency</span>
+          </div>
+          <div class="timeline-role">Data Analyst</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Built 20+ Tableau & Power BI dashboards for C-suite</li>
+              <li>Automated reporting saving 40+ hours/week</li>
+              <li>A/B testing increased retention by 18%</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="timeline-year">2018 – 2020</span>
+            <span class="timeline-company">Startup Hub</span>
+          </div>
+          <div class="timeline-role">Junior Data Analyst</div>
+          <div class="timeline-desc">
+            <ul>
+              <li>Complex SQL queries across PostgreSQL databases</li>
+              <li>Python scripts for data cleaning and ETL workflows</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  -->
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 6 — CERTIFICATIONS (all clickable)
+  ═══════════════════════════════════════════ -->
+  <section id="certifications">
+    <div class="section-inner">
+      <p class="section-label"> — Certifications</p>
+      <h2 class="section-title fade-up">Credentials & Badges</h2>
+
+      <div class="certs-grid">
+
+        <!-- Forage -->
+        <a href="https://drive.google.com/file/d/1xhbvBAKKWMfSEC3_V7RaLHkUW4UliVjs/view?usp=drive_link" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon Forage">
+            <!-- ★ To use local image: <img src="assets/icons/infosys.png" alt="Infosys"> -->
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Data Analytics Job Simulation</div>
+            <div class="cert-issuer">Deloitte - Forage &bull; 2026</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a>
+
+          <!-- Udemy -->
+         <a href="https://drive.google.com/file/d/11PXNDb1-h6IMWJgcEznyV8Akk2SP45MF/view?usp=drive_link" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon infosys">
+            <!-- ★ To use local image: <img src="assets/logos/udemy-25.png" alt="Infosys"> -->
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Prompt Engineering For Data Analytics</div>
+            <div class="cert-issuer">Udemy   &bull; 2026</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a>
+
+
+        <!-- HackerRank -->
+        <!-- <a href="#" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon hackerrank">
+           ★ To use local image: <img src="assets/icons/hackerrank.png" alt="HackerRank"> 
+            <i class="fab fa-hackerrank"></i>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">HackerRank Skill Verification</div>
+            <div class="cert-issuer">HackerRank &bull; 2024</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a> -->
+
+        
+        <!-- Microsoft -->
+        <a href="https://drive.google.com/file/d/1IwITWy7XFlEZ6vm-VPge41LmPbKf3tOi/view?usp=drive_link" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon ms">
+            <!-- ★ To use local image: <img src="assets/icons/microsoft.png" alt="Microsoft"> -->
+            <i class="fab fa-microsoft"></i>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Career Essentials in Generative AI by Microsoft and LinkedIn</div>
+            <div class="cert-issuer">Microsoft &bull; 2025</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a>
+
+
+        <!-- Udemy -->
+        <a href="https://drive.google.com/file/d/1bvK2REZHA_cVdqXBWAjn_fYBLesNCetj/view?usp=drive_link" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon udemy">
+            <!-- ★ To use local image: <img src="assets/icons/udemy_logo.png" alt="Udemy"> -->
+            <i class="fas fa-video"></i>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Amazon Web Services (AWS)</div>
+            <div class="cert-issuer">Udemy &bull; 2026</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a>
+
+            
+        <!-- Microsoft -->
+        <a href="https://drive.google.com/file/d/14Jj-SPHGk1R4oakQlLIn021q8I8_LiTt/view?usp=drive_link" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon ms">
+            <!-- ★ To use local image: <img src="assets/icons/microsoft.png" alt="Microsoft"> -->
+            <i class="fab fa-microsoft"></i>
+          </div>
+          <div class="cert-body">
+            <div class="cert-title"> Microsoft Power BI</div>
+            <div class="cert-issuer">Infosys &bull; 2026</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a>
+
+        <!-- LinkedIn Learning
+        <a href="#" target="_blank" rel="noopener" class="cert-card fade-up">
+          <div class="cert-icon linkedin">
+            <!-- ★ To use local image: <img src="assets/icons/linkedin.png" alt="LinkedIn"> 
+          </div>
+          <div class="cert-body">
+            <div class="cert-title">Advanced Data Analytics</div>
+            <div class="cert-issuer">LinkedIn Learning &bull; 2024</div>
+            <span class="cert-link-btn"><i class="fas fa-external-link-alt"></i> View Cert</span>
+          </div>
+          <i class="fas fa-arrow-up-right-from-square cert-ext"></i>
+        </a> -->
+
+        <!-- Previous Certifications Commented Out
+        <div style="display:none">
+          [Previous certification cards were here]
+        </div>
+        -->
+
+      </div><!-- /.certs-grid -->
+    </div>
+  </section>
+
+  <!-- Previous Certificates (Commented Out)
+  <section id="certifications-old" style="display:none">
+    ... (old certs) ...
+  </section>
+  -->
+
+  <!-- Old certificates moved here for reference but commented out -->
+  <!--
+  <section id="certifications-archive" style="display:none">
+        <a href="#" class="cert-card">...AWS...</a>
+        <a href="#" class="cert-card">...GCP...</a>
+        <a href="#" class="cert-card">...dbt...</a>
+        <a href="#" class="cert-card">...Azure...</a>
+        <a href="#" class="cert-card">...Databricks...</a>
+        <a href="#" class="cert-card">...Snowflake...</a>
+  </section>
+  -->
+
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 7 — CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">— Contact</p>
+
+      <div class="contact-grid">
+
+        <!-- Contact info -->
+        <div class="contact-info fade-up">
+          <h2 class="section-title">
+            Let's Build<br>Something Together
+          </h2>
+          <p>
+            Open to full-time roles, freelance data projects, and consulting.
+            Especially interested in scalable data platforms and impactful analytics.
+          </p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:yourname@email.com">Deepak171220@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+919876543210">+91 7370006239</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Bhopal, Madhya Pradesh, India</span>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-linkedin-in"></i>
+              <a href="https://www.linkedin.com/in/deepak-kumar-prasad/" target="_blank">
+                linkedin
+              </a>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <a href="https://github.com/mr-deepak-kp" target="_blank">
+                <!-- github.com/your-username -->
+                 GitHub
+              </a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-code"></i>
+              <a href="https://leetcode.com/u/deepak171220/" target="_blank">
+                LeetCode
+              </a>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-hackerrank"></i>
+              <a href="https://www.hackerrank.com/profile/Deepak171220" target="_blank">
+                HackerRank
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="fade-up">
+          <div class="contact-form">
+            <input type="text"  class="form-input"    placeholder="Your Name" />
+            <input type="email" class="form-input"    placeholder="Email Address" />
+            <input type="text"  class="form-input"    placeholder="Subject" />
+            <textarea           class="form-textarea" placeholder="Tell me about your project..."></textarea>
+            <button class="form-submit">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /.contact-grid -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <p>© 2025 <span>Deepak Kumar Prasad</span> — Data Analyst · Building Data Engineering Skills</p>
+    <p>Designed for data <span style="color:var(--pink)">♥</span> &amp; Built from scratch.</p>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       RESUME MODAL (opens on "View Resume" click)
+  ═══════════════════════════════════════════ -->
+  <div class="resume-modal" id="resumeModal">
+    <div class="resume-modal-inner">
+
+      <div class="resume-modal-header">
+        <!-- <h3>📄 RESUME — Deepak kumar Prasad</h3> -->
+         <h3>Deepak Kumar Prasad</h3>
+        <button class="resume-modal-close" onclick="closeResume()" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="resume-modal-body">
+
+        <div class="resume-section">
+          <h4>Summary</h4>
+          <div class="resume-entry">
+            Aspiring Data Analyst with hands-on experience in SQL, Excel, Power BI, and Python. Skilled in data cleaning, dashboard 
+development, and data visualization through real-world analytics projects. Passionate about transforming raw data into 
+actionable business insights.
+          </div>
+        </div>
+
+        <!-- <div class="resume-section">
+          <h4>Experience</h4>
+          <div class="resume-entry">
+            <strong>Senior Data Engineer</strong> — TechCorp Inc. &nbsp;(2022 – Present)<br>
+            Designed 30+ production pipelines, led Snowflake migration (60% query speedup),
+            mentored 4 junior engineers.
+          </div> -->
+
+          <!-- <div class="resume-entry">
+            <strong>Data Analyst</strong> — DataLabs Agency &nbsp;(2020 – 2022)<br>
+            Built 20+ Power BI / Tableau dashboards, automated reporting saving 40 hrs/week,
+            A/B testing improved retention by 18%.
+          </div> -->
+
+          <!-- <div class="resume-entry">
+            <strong>Junior Data Analyst</strong> — Startup Hub &nbsp;(2018 – 2020)<br>
+            SQL analysis, Python data cleaning, PostgreSQL optimisation.
+          </div>
+        </div> -->
+
+        <div class="resume-section">
+          <h4>Education</h4>
+          <div class="resume-entry">
+            <strong>B.Tech Computer Science & engineering</strong> — IES college of technlogy,Bhopal &nbsp;(2022-2026)<br>
+            Relevant coursework: Database Systems, Statistics, Machine Learning, Data Structures.
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h4>Skills</h4>
+          <div class="resume-skills-list">
+            <span class="resume-badge">Python</span>
+            <span class="resume-badge">SQL</span>
+            <span class="resume-badge">MySQL</span>
+            <span class="resume-badge">PostgreSQL</span>
+            <!-- <span class="resume-badge">Spark</span> -->
+            <!-- <span class="resume-badge">Airflow</span> -->
+            <!-- <span class="resume-badge">dbt</span> -->
+            <!-- <span class="resume-badge">Kafka</span> -->
+            <!-- <span class="resume-badge">Snowflake</span> -->
+            <!-- <span class="resume-badge">BigQuery</span> -->
+             <span class="resume-badge">MS Office</span>
+            <span class="resume-badge">Power BI</span>
+            <span class="resume-badge">Tableau</span>
+            <span class="resume-badge">Data cleaning</span>
+            <span class="resume-badge">Data Visualization</span>
+            <span class="resume-badge">Dashboard Development</span>
+            <span class="resume-badge">BigQuery</span>
+            <span class="resume-badge">AWS</span>
+            <!-- <span class="resume-badge">GCP</span> -->
+            <!-- <span class="resume-badge">Docker</span> -->
+            <span class="resume-badge">Git</span>
+            <span class="resume-badge">GitHub</span>
+            <!-- <span class="resume-badge">Databricks</span> -->
+                      
+          </div>
+        </div>
+
+        <!-- <div class="resume-section">
+          <h4>Certifications</h4>
+          <div class="resume-entry">
+            AWS Certified Data Analytics Specialty &bull;
+            GCP Professional Data Engineer &bull;
+            dbt Certified Developer &bull;
+            Azure DP-203 &bull;
+            Databricks Certified &bull;
+            SnowPro Core
+          </div>
+        </div> -->
+         <div class="resume-section">
+          <h4>Certifications</h4>
+          <div class="resume-entry">
+            Data Analysis Job Simulation &bull;
+            Prompt Engineering for Data Analysis &bull;
+            Microsoft Power BI &bull;
+            Amazon Web Services(AWS) &bull;
+            Generative AI &bull;
+      
+          </div>
+        </div>
+
+        <!-- <div class="resume-actions">
+          <a
+            href="#"
+            class="btn-primary"
+            onclick="alert('Replace this href with your actual PDF resume URL'); return false;"
+          >
+            <i class="fas fa-download"></i> Download PDF
+          </a>
+        </div> -->
+
+          <a 
+            href="https://drive.google.com/file/d/1VeavolkKKWdrKN2k6pvqSpK8viZgCCj-/view?usp=drive_link"
+            class="btn-primary"
+            target="_blank"> 
+            <i class="fas fa-download"></i> Download PDF
+        </a>
+
+      </div><!-- /.resume-modal-body -->
+    </div><!-- /.resume-modal-inner -->
+  </div><!-- /#resumeModal -->
+
+
+  <!-- Hidden file input for optional profile photo upload -->
+  <input
+    type="file"
+    id="photoInput"
+    accept="image/*"
+    style="display:none"
+    onchange="handlePhotoUpload(event)"
+  />
+
+  <!-- ★ YOUR JAVASCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
