@@ -123,13 +123,13 @@
   // Wireframe sphere
   const sphereGeo = new THREE.SphereGeometry(1.1, 28, 28);
   const wireMat   = new THREE.MeshBasicMaterial({
-    color: 0x00f5d4, wireframe: true, transparent: true, opacity: 0.17
+    color: 0xa855f7, wireframe: true, transparent: true, opacity: 0.25
   });
   scene.add(new THREE.Mesh(sphereGeo, wireMat));
 
   // Solid inner sphere
   const innerGeo = new THREE.SphereGeometry(1.0, 32, 32);
-  const innerMat = new THREE.MeshBasicMaterial({ color: 0x060d14, transparent: true, opacity: 0.88 });
+  const innerMat = new THREE.MeshBasicMaterial({ color: 0x1a1a2e, transparent: true, opacity: 0.92 });
   scene.add(new THREE.Mesh(innerGeo, innerMat));
 
   // Particle dots on sphere surface
@@ -140,11 +140,11 @@
     const theta = 2 * Math.PI * Math.random();
     ptPos[i * 3]     = 1.05 * Math.sin(phi) * Math.cos(theta);
     ptPos[i * 3 + 1] = 1.05 * Math.sin(phi) * Math.sin(theta);
-    ptPos[i * 3 + 2] = 1.05 * Math.cos(phi);
+    ptPos[i * 3 + 2] = 1.05 * Math.cos(theta);
   }
   const ptGeo = new THREE.BufferGeometry();
   ptGeo.setAttribute('position', new THREE.BufferAttribute(ptPos, 3));
-  const ptMat = new THREE.PointsMaterial({ color: 0x00f5d4, size: 0.025, transparent: true, opacity: 0.65 });
+  const ptMat = new THREE.PointsMaterial({ color: 0xe879f9, size: 0.025, transparent: true, opacity: 0.75 });
   scene.add(new THREE.Points(ptGeo, ptMat));
 
   let t = 0;
@@ -281,7 +281,7 @@
 
   btn.addEventListener('click', () => {
     links.classList.toggle('mobile-open');
-    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    // Don't set body overflow to hidden - allow scrolling
     // Animate hamburger lines
     btn.classList.toggle('open');
   });
@@ -290,9 +290,16 @@
   links.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       links.classList.remove('mobile-open');
-      document.body.style.overflow = '';
       btn.classList.remove('open');
     });
+  });
+
+  // Close when clicking outside the menu
+  document.addEventListener('click', (e) => {
+    if (links.classList.contains('mobile-open') && !links.contains(e.target) && !btn.contains(e.target)) {
+      links.classList.remove('mobile-open');
+      btn.classList.remove('open');
+    }
   });
 })();
 
